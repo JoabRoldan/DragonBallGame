@@ -1,0 +1,201 @@
+/* === Fuente estilo retro === */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* === Fondo con grilla animada tipo arcade === */
+body {
+  background: radial-gradient(circle at center, #000 0%, #030202 80%, #000 100%);
+  background-size: cover;
+  color: #00ffea;
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(transparent 95%, rgba(0, 255, 234, 0.2) 96%);
+  background-size: 100% 8px;
+  animation: scan 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes scan {
+  from { transform: translateY(0); }
+  to { transform: translateY(8px); }
+}
+
+/* === Contenedor principal === */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: rgba(10, 10, 10, 0.85);
+  border: 2px solid #00ffea;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 25px #00ffea, inset 0 0 20px #ff00c8;
+  text-align: center;
+}
+
+/* === Título principal === */
+h1 {
+  font-size: 1.6rem;
+  color: #ffec00;
+  text-shadow: 0 0 5px #ffec00, 0 0 15px #ff006a, 0 0 25px #ffec00;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.85; }
+}
+
+/* === Subtítulos y textos === */
+h2, h3, h4 {
+  color: #00ffea;
+  text-shadow: 0 0 10px #00ffea;
+  font-size: 0.8rem;
+}
+
+/* === Línea luminosa === */
+hr.shadow-line {
+  width: 70%;
+  height: 2px;
+  border: none;
+  margin: 20px auto;
+  background: linear-gradient(90deg, #ffec00, #00ffea, #ff00c8);
+  box-shadow: 0 0 15px #00ffea;
+}
+
+/* === Inputs === */
+input.form-control {
+  width: 100%;
+  background: #111;
+  border: 2px solid #ff00c8;
+  border-radius: 8px;
+  padding: 10px;
+  color: #00ffea;
+  font-size: 0.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 10px #00ffea;
+  margin-bottom: 15px;
+  transition: all 0.2s ease;
+}
+
+input.form-control:focus {
+  outline: none;
+  background: #1a1a1a;
+  box-shadow: 0 0 15px #ff00c8, inset 0 0 10px #00ffea;
+}
+
+/* === Botones === */
+button {
+  background: linear-gradient(90deg, #ff006a, #ffec00);
+  border: 2px solid #00ffea;
+  color: #000;
+  padding: 10px 18px;
+  font-weight: 700;
+  border-radius: 10px;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 5px #ffec00;
+  box-shadow: 0 0 15px #ff00c8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #00ffea, #ff00c8);
+  color: #fff;
+  box-shadow: 0 0 25px #ffec00, inset 0 0 10px #00ffea;
+  transform: scale(1.05);
+}
+
+/* === Selección de personajes === */
+.col-md-5 {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px dashed #ffec00;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 20px rgba(255, 236, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.col-md-5:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #00ffea;
+}
+
+/* === Imágenes de personajes === */
+button img {
+  border-radius: 50%;
+  border: 2px solid #00ffea;
+  box-shadow: 0 0 10px #ff00c8;
+  transition: transform 0.3s ease;
+}
+
+button img:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 0 25px #ffec00;
+}
+
+/* === Barra de progreso (vida, ki, energía) === */
+.progress {
+  background: #111;
+  border: 1px solid #00ffea;
+  height: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  font-size: 0.6rem;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  transition: width 0.3s ease;
+  animation: pulse 2s infinite alternate;
+}
+
+.bg-success { background: #00ff15; }
+.bg-danger  { background: #ff004c; }
+.bg-warning { background: #ffec00; }
+
+@keyframes pulse {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.5); }
+}
+
+/* === VS central === */
+.display-3 {
+  color: #ffec00;
+  text-shadow: 0 0 10px #ffec00, 0 0 20px #ff00c8;
+  animation: glowVS 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowVS {
+  from { text-shadow: 0 0 15px #ffec00, 0 0 30px #00ffea; }
+  to { text-shadow: 0 0 25px #ff00c8, 0 0 40px #ffec00; }
+}
+
+/* === Abandonar === */
+#btn_abandonar {
+  background: #ff004c;
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 0 10px #ff004c;
+}
+
+#btn_abandonar:hover {
+  background: #ffec00;
+  color: #000;
+  box-shadow: 0 0 25px #ffec00;
+}
